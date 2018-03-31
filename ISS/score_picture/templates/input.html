@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>智能评分系统</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href={% static "css/crowd.css"%}>
+
+</head>
+<body>
+	<!-- {% load static %} -->
+	<header>
+	        <div class="bg">
+	            <canvas id="display"></canvas>
+				<div class="header" id="demo">
+					<form  method="post" action="score" class="form" enctype="multipart/form-data">
+						{% csrf_token %}
+						<input type="text" name="name" class="name" placeholder=“姓名” />
+					    <input type="file" name="image" class="file" />
+					    <input type="submit" value = "submit" class="submit"/>
+					</form>
+					{{score}}
+				</div>
+	            <div id="blachole"></div>
+	        </div>
+
+	</header>
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src={% static "js/constellation.js" %}></script>
+
+</body>
+</html>
